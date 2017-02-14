@@ -1,7 +1,7 @@
 #include<iostream>
 #include "mpi.h"
 
-int main(int argc, char* argv[])
+int main()
 {	
 	int mrank, nxtRank, mtag, pingCount, commSize;
 	int arraySize = 10;
@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 
 	//initialize MPI
 	
-	if (MPI_Init(&argc, &argv) != MPI_SUCCESS)
+	if (MPI_Init() != MPI_SUCCESS)
 	{
        		cout<<"MPI initialization error"<<endl;
         	return exit(1);
