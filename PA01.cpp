@@ -38,14 +38,14 @@ int main(int argc, char** argv)
 			MPI_Send(&pingCount, 1, MPI::INT, nxtRank, mtag, MPI_COMM_WORLD);
 			MPI_Recv(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD, &status);
 
-			cout<<"Sent::: A rank: "<<mrank<<", to B rank: "<<nxtRank<<", Data Sent :" <<pingcount<<endl;
+			cout<<"Sent::: A rank: "<<mrank<<", to B rank: "<<nxtRank<<", Data Sent :" <<pingCount<<endl;
 		}
 		else
 		{
 			MPI_Recv(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD, &status);
 			MPI_Send(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD);
 
-			cout<<"Received::: B rank: "<<nxtRank<<", from A rank: "<<mRank<<", Data Sent :" <<pingcount<<endl;
+			cout<<"Received::: B rank: "<<nxtRank<<", from A rank: "<<mrank<<", Data Sent :" <<pingCount<<endl;
 		
 		}
 		
