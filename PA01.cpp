@@ -28,8 +28,8 @@ int main(int argc, char** argv)
 
 	pingCount = 0;
 
-	while(pingCount < limit)
-	{
+	//while(pingCount < limit)
+	//{
 		if(mrank == 0)
 		{
 			pingCount += 1;
@@ -51,7 +51,7 @@ int main(int argc, char** argv)
 		printf("PROCESS %d: Time: %f \n", pingCount, totTime);
 		
 
-	}
+	//}
 	
 	//finalize MPI
 
