@@ -10,11 +10,12 @@ int main(int argc, char** argv)
 	int mtag;
 	int pingCount;
 	int limit = 10;
+	int size;
 	float sTime, eTime, totTime;
 	MPI_Status status;
 
 	//initialize MPI
-	
+	printf("init \n");
 	if (MPI_Init(NULL, NULL) != MPI_SUCCESS)
 	{
 		printf("MPI initialization error \n");
@@ -22,10 +23,12 @@ int main(int argc, char** argv)
    	}
 
 	//get rank
-
+	printf("rank \n");
 	MPI_Comm_rank(MPI_COMM_WORLD, &mrank);
 	nxtRank = (mrank + 1) % 2;
-
+	
+	MPI_Comm_Size(MPI_COMM_WORLD, &size);
+	
 	pingCount = 0;
 
 	//while(pingCount < limit)
