@@ -30,6 +30,7 @@ int main(int argc, char** argv)
 
 	//while(pingCount < limit)
 	//{
+	printf("why am I sucking? \n");
 		if(mrank == 0)
 		{
 			pingCount += 1;
@@ -46,6 +47,7 @@ int main(int argc, char** argv)
 		
 		eTime = MPI_Wtime(); //end time
 		totTime = eTime - sTime;
+	printf("why am I sucking? again \n");
 		printf("Sent::: A rank: %d: Received %d  from %d\n",
       					 mrank, pingCount, status.MPI_SOURCE);
 		printf("PROCESS %d: Time: %f \n", pingCount, totTime);
