@@ -35,13 +35,13 @@ int main(int argc, char** argv)
 			pingCount += 1;
 			sTime = MPI_Wtime(); //start time
 
-			MPI_Send(&pingCount, 1, MPI::INT, nxtRank, mtag, MPI_COMM_WORLD);
-			MPI_Recv(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD, &status);
+			MPI_Send(&pingCount, 1, MPI_INT, nxtRank, mtag, MPI_COMM_WORLD);
+			MPI_Recv(&pingCount, 1, MPI_INT, mrank, mtag, MPI_COMM_WORLD, &status);
 		}
 		else
 		{
-			MPI_Recv(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD, &status);
-			MPI_Send(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD);
+			MPI_Recv(&pingCount, 1, MPI_INT, mrank, mtag, MPI_COMM_WORLD, &status);
+			MPI_Send(&pingCount, 1, MPI_INT, mrank, mtag, MPI_COMM_WORLD);
 		}
 		
 		eTime = MPI_Wtime(); //end time
@@ -55,7 +55,7 @@ int main(int argc, char** argv)
 	
 	//finalize MPI
 
-	MPI::Finalize();
+	MPI_Finalize();
 
 	return 0;
 }
