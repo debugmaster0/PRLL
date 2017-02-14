@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 
 	while(pingCount < limit)
 	{
-		if(mrank == pingCount%2)
+		if(mrank == 0)
 		{
 			pingCount += 1;
 			sTime = MPI_Wtime(); //start time
