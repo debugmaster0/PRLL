@@ -1,11 +1,14 @@
 #include<iostream>
 #include "mpi.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 using namespace std;
 int main(int argc, char** argv)
 {	
-	int mrank, nxtRank, mtag, pingCount;
+	int mrank;
+	int nxtRank;
+	int mtag;
+	int pingCount;
 	int limit = 10;
 	float sTime, eTime;
 	MPI_Status status;
@@ -15,12 +18,12 @@ int main(int argc, char** argv)
 	if (MPI_Init(NULL, NULL) != MPI_SUCCESS)
 	{
        		cout<<"MPI initialization error"<<endl;
-        	return exit(1);
+        	exit(1);
    	}
 
 	//get rank
 
-	MPI_COMM_rank(MPI_COMM_WORLD, &mrank);
+	MPI_COMM_Rank(MPI_COMM_WORLD, &mrank);
 	nxtRank = (mrank + 1) % 2;
 
 	pingCount = 0;
