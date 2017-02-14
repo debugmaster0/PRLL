@@ -45,10 +45,10 @@ int main(int argc, char** argv)
 		}
 		
 		eTime = MPI_Wtime(); //end time
-		totTime = etime - sTime;
+		totTime = eTime - sTime;
 		printf("Sent::: A rank: %d: Received %d  from %d\n",
-      					 rank, pingCount, Stat.MPI_SOURCE);
-		printf("PROCESS %d: Time: &f \n", pingCount, totTime);
+      					 mrank, pingCount, status.MPI_SOURCE);
+		printf("PROCESS %d: Time: %f \n", pingCount, totTime);
 		
 
 	}
