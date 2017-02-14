@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 
 	//get rank
 
-	MPI_COMM_rank(MPI_COMM_WORLD, &mrank);
+	MPI_Comm_rank(MPI_COMM_WORLD, &mrank);
 	nxtRank = (mrank + 1) % 2;
 
 	pingCount = 0;
