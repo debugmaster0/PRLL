@@ -12,7 +12,7 @@ int main()
 	
 	if (MPI_Init() != MPI_SUCCESS)
 	{
-       		cout<<"MPI initialization error"<<endl;
+       		std::cout<<"MPI initialization error"<<endl;
         	return exit(1);
    	}
 
@@ -38,7 +38,7 @@ int main()
 
 			MPI_Recv(&pingCount, 1, MPI::INT, nxtRank, mtag, MPI_COMM_WORLD, &status);
 
-			cout<<"Sent::: A rank: "<<mrank<<", to B rank: "<<nxtRank<<", Data Sent :" <<pingcount<<endl;
+			std::cout<<"Sent::: A rank: "<<mrank<<", to B rank: "<<nxtRank<<", Data Sent :" <<pingcount<<endl;
 		}
 		else
 		{
@@ -46,12 +46,12 @@ int main()
 
 			MPI_Send(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD);
 
-			cout<<"Received::: B rank: "<<nxtRank<<", from A rank: "<<mRank<<", Data Sent :" <<pingcount<<endl;
+			std::cout<<"Received::: B rank: "<<nxtRank<<", from A rank: "<<mRank<<", Data Sent :" <<pingcount<<endl;
 		
 		}
 		
 		eTime = MPI_Wtime(); //end time
-		cout<<"PROCESS "<<pingCount<<" Time : "<< eTime - sTime <<endl;
+		std::cout<<"PROCESS "<<pingCount<<" Time : "<< eTime - sTime <<endl;
 
 	}
 	
