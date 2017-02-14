@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 
 	//get rank
 
-	MPI_COMM_Rank(MPI_COMM_WORLD, &mrank);
+	MPI_COMM_rank(MPI_COMM_WORLD, &mrank);
 	nxtRank = (mrank + 1) % 2;
 
 	pingCount = 0;
@@ -36,12 +36,14 @@ int main(int argc, char** argv)
 			sTime = MPI_Wtime(); //start time
 
 			MPI_Send(&pingCount, 1, MPI::INT, nxtRank, mtag, MPI_COMM_WORLD);
+			MPI_Recv(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD, &status);
 
 			cout<<"Sent::: A rank: "<<mrank<<", to B rank: "<<nxtRank<<", Data Sent :" <<pingcount<<endl;
 		}
 		else
 		{
-			MPI_Recv(&pingCount, 1, MPI::INT, nxtRank, mtag, MPI_COMM_WORLD, &status);
+			MPI_Recv(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD, &status);
+			MPI_Send(&pingCount, 1, MPI::INT, mrank, mtag, MPI_COMM_WORLD);
 
 			cout<<"Received::: B rank: "<<nxtRank<<", from A rank: "<<mRank<<", Data Sent :" <<pingcount<<endl;
 		
